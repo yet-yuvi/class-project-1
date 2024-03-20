@@ -21,7 +21,7 @@ export const InventoryPage = () => {
   };
 
   return (
-    <Box px={8} py={4}>
+    <Box px={8} py={10}>
       <Table
         autoHeight
         loading={isLoading}
