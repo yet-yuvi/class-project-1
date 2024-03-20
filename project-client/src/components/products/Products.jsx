@@ -9,7 +9,7 @@ export const Products = () => {
   
   return (
     <div className="products">
-      <Box flexWrap="wrap" gap={2} justifyContent="center">
+      <Box py={5} flexWrap="wrap" gap={2} justifyContent="center">
         {products.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}

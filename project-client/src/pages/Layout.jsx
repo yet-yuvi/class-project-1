@@ -1,12 +1,12 @@
 // import { CartProvider } from "../contexts";
-import { Navbar } from "../components";
+import { Sidebar } from "../components";
 import { MainArea } from "../components";
 
 export const Layout = () => {
   return (
     <div className="App">
       {/* <CartProvider> */}
-        <Navbar />
+        <Sidebar />
         <MainArea />
       {/* </CartProvider> */}
     </div>

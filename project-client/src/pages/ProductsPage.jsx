@@ -16,7 +16,7 @@ export const ProductsPage = () => {
     <Stack>
       {!isProductFormRoute() && (                  // conditional rendering
       <Box justifyContent="flex-end" px={2} py={2}>
-        <Button variant="contained" size="small" onClick={routeToProductForm}>
+        <Button variant="contained" size="medium" onClick={routeToProductForm}>
           Add Product
         </Button>
       </Box>
