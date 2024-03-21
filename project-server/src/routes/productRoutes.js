@@ -17,6 +17,13 @@ productRouter.post('/products', async (req, res) => {
     }
 })
 
+productRouter.put('/products/:id', async(req, res) => {
+    const { id } = req.params;
+    const updatedData = req.body;
+    await ProductServices.editProduct(id, updatedData);
+    res.status(200).json({message: 'Successfully edited' });
+})
+
 productRouter.delete('/products/:id', async(req, res) => {
     const { id } = req.params;
     await ProductServices.deleteProduct(id);

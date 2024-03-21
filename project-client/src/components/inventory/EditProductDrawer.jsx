@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Box, Drawer } from '../../ui';
 
 export const EditProductDrawer = ({ open, onClose }) => {
-  
 
   const list =  (
     <Box
@@ -18,7 +17,7 @@ export const EditProductDrawer = ({ open, onClose }) => {
     <div>
       <Drawer
       anchor="right"
-      open={open}
+      open={Boolean(open)}
       onClose={onClose}
     >
       {list}
