@@ -16,8 +16,8 @@ import { EditProductDrawer } from "../inventory";
 export const ProductActions = ({ productRowData }) => {
   const [productToDelete, setProductToDelete] = React.useState(null);
   const [isDeleting, setIsDeleting] = React.useState(false);
-  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
-  console.log();
+  const [isDrawerOpen, setIsDrawerOpen] = React.useState(null);
+  console.log(productRowData);
 
   const onCloseDeleteModal = () => setProductToDelete(null);
 
@@ -37,7 +37,7 @@ export const ProductActions = ({ productRowData }) => {
 
   return (
     <Box>
-      <IconButton onClick={() => setIsDrawerOpen(true)} >
+      <IconButton onClick={() => setIsDrawerOpen(productRowData.row.id)} >
         <EditIcon />
       </IconButton>
       <IconButton onClick={() => setProductToDelete(productRowData.row.id)}>
