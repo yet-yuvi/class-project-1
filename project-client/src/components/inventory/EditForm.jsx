@@ -47,7 +47,6 @@ export const EditForm = ({ productRowData, onClose }) => {
             <Stack spacing={2} py={4}>
               <Typography variant="subtitle1">Edit Product</Typography>
               <TextField
-                required
                 name="name"
                 label="Name"
                 variant="standard"
@@ -62,7 +61,6 @@ export const EditForm = ({ productRowData, onClose }) => {
                 value={formData.description}
               />
               <TextField
-                required
                 name="price"
                 label="Price"
                 type="number"
@@ -71,7 +69,6 @@ export const EditForm = ({ productRowData, onClose }) => {
                 value={formData.price}
               />
               <TextField
-                required
                 name="quantity"
                 label="Quantity"
                 type="number"
@@ -79,7 +76,7 @@ export const EditForm = ({ productRowData, onClose }) => {
                 onChange={handleChange}
                 value={formData.quantity}
               />
-              <Button disabled={isSubmitting} variant="outlined" type="submit">
+              <Button disabled={isSubmitting} variant="contained" type="submit">
                 Confirm
               </Button>
               <Button onClick={onClose} variant="outlined" >Cancel</Button>
