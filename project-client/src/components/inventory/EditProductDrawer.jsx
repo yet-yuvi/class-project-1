@@ -1,27 +1,37 @@
-import * as React from 'react';
-import { Box, Drawer } from '../../ui';
+import * as React from "react";
+import { Box, Drawer } from "../../ui";
+import { EditForm } from "./EditForm";
 
-export const EditProductDrawer = ({ open, onClose }) => {
-
-  const list =  (
+export const EditProductDrawer = ({
+  open,
+  onClose,
+  productRowData,
+}) => {
+  const list = (
     <Box
-      sx={{ width: 400 }}
+      sx={{
+        width: 300,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
       role="presentation"
-      
     >
-      Edit Here
+      <EditForm productRowData={productRowData} onClose={onClose} />
     </Box>
   );
 
   return (
     <div>
-      <Drawer
-      anchor="right"
-      open={Boolean(open)}
+      <Drawer 
+      anchor="top" 
+      open={Boolean(open)} 
       onClose={onClose}
-    >
-      {list}
-    </Drawer>
+      PaperProps={{ style: { justifyContent: "center", width: "20%",
+      margin: "auto", } }}
+      >
+        {list}
+      </Drawer>
     </div>
   );
-}
+};
