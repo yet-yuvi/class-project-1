@@ -76,7 +76,9 @@ export const EditForm = ({ productRowData, onClose }) => {
                 onChange={handleChange}
                 value={formData.quantity}
               />
+                  
               <Button disabled={isSubmitting} variant="contained" type="submit">
+
                 Confirm
               </Button>
               <Button onClick={onClose} variant="outlined" >Cancel</Button>
