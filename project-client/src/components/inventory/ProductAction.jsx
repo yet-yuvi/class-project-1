@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Box,
   Button,
@@ -10,14 +9,17 @@ import {
   IconButton,
 } from "../../ui";
 import { EditIcon, DeleteIcon } from "../../icons";
-import { ProductServices } from "../../services";
+
 import { EditProductDrawer } from "../inventory";
+import { ProductServices } from "../../services";
 
 export const ProductActions = ({ productRowData }) => {
+  
   const [productToDelete, setProductToDelete] = React.useState(null);
   const [isDeleting, setIsDeleting] = React.useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(null);
-  console.log(productRowData);
+  
+
 
   const onCloseDeleteModal = () => setProductToDelete(null);
 
@@ -35,19 +37,25 @@ export const ProductActions = ({ productRowData }) => {
       });
   };
 
+  const handleEditClick = (productId) => {
+    setIsDrawerOpen(Boolean(productId));
+  };
+
   return (
     <Box>
-      <IconButton onClick={() => setIsDrawerOpen(productRowData.row.id)} >
+      <IconButton onClick={() => handleEditClick(productRowData.row.id)}>
         <EditIcon />
-      </IconButton>
-      <IconButton onClick={() => setProductToDelete(productRowData.row.id)}>
-        <DeleteIcon />
       </IconButton>
 
       <EditProductDrawer
         open={isDrawerOpen}
-        onClose={() => setIsDrawerOpen(false)}
+        onClose={() => setIsDrawerOpen(null)}
+        productRowData= {productRowData}
       />
+
+      <IconButton onClick={() => setProductToDelete(productRowData.row.id)}>
+        <DeleteIcon />
+      </IconButton>
 
       <Dialog open={Boolean(productToDelete)} onClose={onCloseDeleteModal}>
         <DialogTitle>{`Delete ${productRowData.row.name}`}</DialogTitle>
