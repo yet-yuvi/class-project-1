@@ -1,0 +1,27 @@
+services:
+  project-client:
+    container_name: project-client
+    build:
+      context: ./project-client
+      dockerfile: dockerfile
+    image: project-client-image  
+    depends_on:
+      - project-server
+    ports:
+      - 3000:3000
+    volumes:
+      - ./project-client/src/:/app/src
+
+  project-server:
+    container_name: project-server
+    build:
+      context: ./project-server
+      dockerfile: dockerfile
+    image: project-server-image
+    ports:
+      - 7000:7000
+    volumes:
+      - ./project-server/src/:/app/src
+    environment:
+      - MONGODB_URI=mongodb+srv://project1:project1@projec1.xzelyui.mongodb.net/?retryWrites=true&w=majority&appName=projec1
+      - PORT=7000
